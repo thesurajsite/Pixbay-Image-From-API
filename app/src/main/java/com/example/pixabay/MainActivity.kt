@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val service = retrofit.create(ApiInterface::class.java)
+       // val service = retrofit.create(ApiInterface::class.java)
 
         getImage("butterfly Flower")
         searchImage()

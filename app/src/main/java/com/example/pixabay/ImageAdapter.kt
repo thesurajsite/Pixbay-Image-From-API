@@ -1,5 +1,6 @@
 package com.example.pixabay
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,18 @@ class ImageAdapter(private val hits: List<Hit>) : RecyclerView.Adapter<ImageAdap
         Glide.with(holder.itemView.context)
             .load(hit.previewURL)
             .into(holder.imageView)
+
+        holder.imageView.setOnClickListener {
+
+            val intent=Intent(it.context, full_screen_image::class.java)
+            val largeImageUrl=hit.largeImageURL
+            intent.putExtra("largeImageUrl",largeImageUrl)
+            it.context.startActivity(intent)
+
+        }
+
+
+
     }
 
     override fun getItemCount(): Int {
